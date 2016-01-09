@@ -1,0 +1,96 @@
+package com.nako.wrocloveplaces.ui.adapter;
+
+import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.nako.wrocloveplaces.R;
+import com.nako.wrocloveplaces.model.Place;
+import com.nako.wrocloveplaces.ui.activity.PlaceDetailActivity;
+import com.squareup.picasso.Picasso;
+
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
+/**
+ * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
+ * <p/>
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * <p/>
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * <p/>
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
+public class RecyclerViewAdapter extends RecyclerView.Adapter {
+    private List<Place> mPlaces;
+
+    public RecyclerViewAdapter(List<Place> places) {
+        mPlaces = places;
+    }
+
+    public static class PlaceViewHolder extends RecyclerView.ViewHolder {
+        private String mBindDetails;
+        private String mBindDescription;
+
+        @Bind(R.id.place_photo) ImageView mImageViewPlacePhoto;
+        @Bind(R.id.place_place_name) TextView mTextViewPlaceName;
+        View mItemView;
+
+        public PlaceViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            mItemView = itemView;
+        }
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.recycler_view_item_place, parent, false);
+        return new PlaceViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        final PlaceViewHolder placeViewHolder = (PlaceViewHolder) holder;
+        placeViewHolder.mTextViewPlaceName.setText(mPlaces.get(position).getPlaceName());
+        placeViewHolder.mBindDescription = mPlaces.get(position).getDescription();
+        placeViewHolder.mBindDetails = mPlaces.get(position).getReview();
+        //todo picasso
+        Picasso.with(placeViewHolder.mImageViewPlacePhoto.getContext())
+                .load(mPlaces.get(position).getDrawableRes())
+                .fit()
+                .centerCrop()
+                .into(placeViewHolder.mImageViewPlacePhoto);
+        placeViewHolder.mItemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //// TODO: 09.01.2016 parcelable maybe?
+                Intent intent = new Intent(v.getContext(), PlaceDetailActivity.class);
+                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE_NAME, placeViewHolder.mTextViewPlaceName.getText());
+                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE_DESCRIPTION, placeViewHolder.mBindDescription);
+                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE_DETAIL, placeViewHolder.mBindDetails);
+                v.getContext().startActivity(intent);
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return mPlaces.size();
+    }
+}

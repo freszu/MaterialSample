@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Wroclove Places</string>
+    <string name="username">Username</string>
+    <string name="menu_settings">Settings</string>
+    <string name="drawer_open">Open</string>
+    <string name="drawer_close">Close</string>
+    <string name="title_activity_place_detail">PlaceDetailActivity</string>
+    <string-array name="places">
+        <item>Cathedral Island</item>
+        <item>Centennial Hall</item>
+        <item>Main Railway Station</item>
+        <item>Market Square</item>
+        <item>Town Hall</item>
+    </string-array>
+
+    <string name="lorem_ipsum">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin nibhaugue, suscipit a,
+        scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus.
+        Phasellus pharetra nulla ac diam.
+    </string>
+</resources>
