@@ -43,9 +43,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     public static class PlaceViewHolder extends RecyclerView.ViewHolder {
-        private String mBindDetails;
-        private String mBindDescription;
-
         @Bind(R.id.place_photo) ImageView mImageViewPlacePhoto;
         @Bind(R.id.place_place_name) TextView mTextViewPlaceName;
         View mItemView;
@@ -65,12 +62,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final PlaceViewHolder placeViewHolder = (PlaceViewHolder) holder;
         placeViewHolder.mTextViewPlaceName.setText(mPlaces.get(position).getPlaceName());
-        placeViewHolder.mBindDescription = mPlaces.get(position).getDescription();
-        placeViewHolder.mBindDetails = mPlaces.get(position).getReview();
-        //todo picasso
         Picasso.with(placeViewHolder.mImageViewPlacePhoto.getContext())
                 .load(mPlaces.get(position).getDrawableRes())
                 .fit()
@@ -79,11 +73,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         placeViewHolder.mItemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //// TODO: 09.01.2016 parcelable maybe?
                 Intent intent = new Intent(v.getContext(), PlaceDetailActivity.class);
-                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE_NAME, placeViewHolder.mTextViewPlaceName.getText());
-                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE_DESCRIPTION, placeViewHolder.mBindDescription);
-                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE_DETAIL, placeViewHolder.mBindDetails);
+                intent.putExtra("EXTRA_PLACE",mPlaces.get(position));
                 v.getContext().startActivity(intent);
             }
         });

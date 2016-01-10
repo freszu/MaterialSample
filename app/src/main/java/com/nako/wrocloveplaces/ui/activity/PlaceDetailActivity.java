@@ -11,26 +11,7 @@ import com.nako.wrocloveplaces.R;
 
 public class PlaceDetailActivity extends AppCompatActivity {
 
-    public static final String EXTRA_PLACE_NAME="EXTRA_PLACE_NAME";
-    public static final String EXTRA_PLACE_DETAIL="EXTRA_PLACE_DETAIL";
-    public static final String EXTRA_PLACE_DESCRIPTION="EXTRA_PLACE_DESCRIPTION";
-    public static final String EXTRA_PLACE_DRAWABLE="EXTRA_PLACE_DRAWABLE";
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_place_detail);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-    }
+    public static final String EXTRA_PLACE="EXTRA_PLACE";
+    //// TODO: 10.01.2016 Activity
 
 }

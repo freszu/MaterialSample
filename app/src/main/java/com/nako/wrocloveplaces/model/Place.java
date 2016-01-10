@@ -1,5 +1,7 @@
 package com.nako.wrocloveplaces.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.support.annotation.DrawableRes;
 
 /**
@@ -19,11 +21,12 @@ import android.support.annotation.DrawableRes;
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
-public class Place {
+public class Place implements Parcelable {
     private String mPlaceName;
     private String mDescription;
     private String mReview;
-    private @DrawableRes int mDrawableRes;
+    private
+    @DrawableRes int mDrawableRes;
 
     public Place(String placeName, String description, String review, int drawableRes) {
         mPlaceName = placeName;
@@ -47,4 +50,34 @@ public class Place {
     public int getDrawableRes() {
         return mDrawableRes;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.mPlaceName);
+        dest.writeString(this.mDescription);
+        dest.writeString(this.mReview);
+        dest.writeInt(this.mDrawableRes);
+    }
+
+    protected Place(Parcel in) {
+        this.mPlaceName = in.readString();
+        this.mDescription = in.readString();
+        this.mReview = in.readString();
+        this.mDrawableRes = in.readInt();
+    }
+
+    public static final Parcelable.Creator<Place> CREATOR = new Parcelable.Creator<Place>() {
+        public Place createFromParcel(Parcel source) {
+            return new Place(source);
+        }
+
+        public Place[] newArray(int size) {
+            return new Place[size];
+        }
+    };
 }

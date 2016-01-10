@@ -46,8 +46,8 @@ public class PlacesGenerator {
         int random = RANDOM.nextInt(5);
         return new Place(
                 getPlaceName(context, random),
-                getDescription(),
-                getReview(),
+                getDescription(context),
+                getReview(context),
                 getRandomDrawableOfPlace(random)
         );
     }
@@ -123,15 +123,11 @@ public class PlacesGenerator {
         return context.getResources().getStringArray(R.array.places)[id];
     }
 
-    private static String getDescription() {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
-                " Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. " +
-                "Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.";
+    private static String getDescription(Context context) {
+        return context.getString(R.string.lorem_ipsum);
     }
 
-    private static String getReview() {
-        return "Lorem ipsum dolor sit amet, consectetur adipiscing elit." +
-                " Proin nibh augue, suscipit a, scelerisque sed, lacinia in, mi. Cras vel lorem. " +
-                "Etiam pellentesque aliquet tellus. Phasellus pharetra nulla ac diam.";
+    private static String getReview(Context context) {
+        return context.getString(R.string.lorem_ipsum);
     }
 }

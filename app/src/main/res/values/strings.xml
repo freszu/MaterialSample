@@ -18,4 +18,5 @@
         scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus.
         Phasellus pharetra nulla ac diam.
     </string>
+    <string name="backdrop">Backdrop image</string>
 </resources>
