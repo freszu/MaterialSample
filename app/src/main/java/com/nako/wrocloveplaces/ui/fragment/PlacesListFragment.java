@@ -1,47 +1,126 @@
 package com.nako.wrocloveplaces.ui.fragment;
 
+import android.content.Context;
+import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.nako.wrocloveplaces.R;
+import com.nako.wrocloveplaces.model.Place;
 import com.nako.wrocloveplaces.ui.adapter.RecyclerViewAdapter;
 import com.nako.wrocloveplaces.util.PlacesGenerator;
 
+import java.util.List;
+
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 /**
  * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
- * <p/>
+ * <p>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
- * <p/>
+ * <p>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * <p/>
+ * <p>
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 public class PlacesListFragment extends Fragment {
-    @Nullable
+
+    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(R.id.recyclerview) RecyclerView mRecyclerView;
+
+    private RecyclerViewAdapter mRecyclerViewAdapter;
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.fragment_places_list, container, false);
-        setupRecyclerView(recyclerView);
-        return recyclerView;
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Log.i("Fragment", "OnAttach");
+
     }
 
-    private void setupRecyclerView(RecyclerView recyclerView) {
-        recyclerView.setLayoutManager(new LinearLayoutManager(recyclerView.getContext()));
-        recyclerView.setAdapter(new RecyclerViewAdapter(PlacesGenerator.getRandomPlaces(recyclerView.getContext(),30)));
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_places_list, container, false);
+        ButterKnife.bind(this, view);
+        setupSwipeToRefresh();
+        setupRecyclerViewAdapter(mRecyclerView.getContext());
+        setupRecyclerView();
+        return view;
     }
+
+
+    private void setupRecyclerView() {
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
+        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+    }
+
+    private void setupRecyclerViewAdapter(Context context) {
+        mRecyclerViewAdapter = new RecyclerViewAdapter();
+        mRecyclerViewAdapter.setPlaces(PlacesGenerator.getRandomPlaces(context, 30));
+    }
+
+    private void setupSwipeToRefresh() {
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.primary, R.color.accent);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                refresh();
+            }
+        });
+    }
+
+    private void refresh() {
+        mSwipeRefreshLayout.setRefreshing(true);
+        new DummyBackgroundTask(mRecyclerView.getContext()).execute();
+    }
+
+
+    private void onRefreshComplete(List<Place> places) {
+        mSwipeRefreshLayout.setRefreshing(false);
+        mRecyclerViewAdapter.setPlaces(places);
+    }
+
+    private class DummyBackgroundTask extends AsyncTask<Void, Void, List<Place>> {
+
+        static final int TASK_DURATION_MILLISECONDS = 3 * 1000;
+
+        private Context mApplicationContext;
+
+        public DummyBackgroundTask(Context context) {
+            mApplicationContext = context.getApplicationContext();
+        }
+
+        @Override
+        protected List<Place> doInBackground(Void... params) {
+            try {
+                Thread.sleep(TASK_DURATION_MILLISECONDS);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return PlacesGenerator.getRandomPlaces(mApplicationContext, 30);
+        }
+
+        @Override
+        protected void onPostExecute(List<Place> result) {
+            onRefreshComplete(result);
+        }
+
+    }
+
 }

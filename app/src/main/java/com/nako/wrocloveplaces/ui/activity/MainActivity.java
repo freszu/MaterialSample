@@ -98,6 +98,7 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new PlacesListFragment(), "Category 5");
         adapter.addFragment(new PlacesListFragment(), "Category 6");
         viewPager.setAdapter(adapter);
+        mViewPager.setOffscreenPageLimit(adapter.getCount() - 1);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
