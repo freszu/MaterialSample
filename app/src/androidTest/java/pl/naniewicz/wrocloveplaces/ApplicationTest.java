@@ -1,4 +1,4 @@
-package com.nako.wrocloveplaces;
+package pl.naniewicz.wrocloveplaces;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

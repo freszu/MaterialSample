@@ -19,4 +19,6 @@
         Phasellus pharetra nulla ac diam.
     </string>
     <string name="backdrop">Backdrop image</string>
+    <string name="description">Description</string>
+    <string name="review">Review</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.nako.wrocloveplaces.ui.adapter;
+package pl.naniewicz.wrocloveplaces.ui.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

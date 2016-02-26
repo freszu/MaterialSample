@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest package="com.nako.wrocloveplaces"
+<manifest package="pl.naniewicz.wrocloveplaces"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
         android:allowBackup="true"
+        android:fullBackupContent="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name="pl.naniewicz.wrocloveplaces.ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -16,13 +17,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.activity.PlaceDetailActivity"
+            android:name="pl.naniewicz.wrocloveplaces.ui.activity.PlaceDetailActivity"
             android:label="@string/title_activity_place_detail"
-            android:parentActivityName=".ui.activity.MainActivity"
+            android:parentActivityName="pl.naniewicz.wrocloveplaces.ui.activity.MainActivity"
             android:theme="@style/AppTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.nako.wrocloveplaces.ui.activity.MainActivity"/>
+                android:value="pl.naniewicz.wrocloveplaces.ui.activity.MainActivity"/>
         </activity>
     </application>
 

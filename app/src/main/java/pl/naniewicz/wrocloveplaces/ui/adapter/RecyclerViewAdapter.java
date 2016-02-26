@@ -1,4 +1,4 @@
-package com.nako.wrocloveplaces.ui.adapter;
+package pl.naniewicz.wrocloveplaces.ui.adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.nako.wrocloveplaces.R;
-import com.nako.wrocloveplaces.model.Place;
-import com.nako.wrocloveplaces.ui.activity.PlaceDetailActivity;
+import pl.naniewicz.wrocloveplaces.R;
+import pl.naniewicz.wrocloveplaces.model.Place;
+import pl.naniewicz.wrocloveplaces.ui.activity.PlaceDetailActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

@@ -1,4 +1,4 @@
-package com.nako.wrocloveplaces.ui.fragment;
+package pl.naniewicz.wrocloveplaces.ui.fragment;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -12,10 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.nako.wrocloveplaces.R;
-import com.nako.wrocloveplaces.model.Place;
-import com.nako.wrocloveplaces.ui.adapter.RecyclerViewAdapter;
-import com.nako.wrocloveplaces.util.PlacesGenerator;
+import pl.naniewicz.wrocloveplaces.model.Place;
+import pl.naniewicz.wrocloveplaces.ui.adapter.RecyclerViewAdapter;
+import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
 import java.util.List;
 
@@ -42,8 +41,8 @@ import butterknife.ButterKnife;
 
 public class PlacesListFragment extends Fragment {
 
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(R.id.recyclerview) RecyclerView mRecyclerView;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.recyclerview) RecyclerView mRecyclerView;
 
     private RecyclerViewAdapter mRecyclerViewAdapter;
 
@@ -56,7 +55,7 @@ public class PlacesListFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_places_list, container, false);
+        View view = inflater.inflate(pl.naniewicz.wrocloveplaces.R.layout.fragment_places_list, container, false);
         ButterKnife.bind(this, view);
         setupSwipeToRefresh();
         setupRecyclerViewAdapter(mRecyclerView.getContext());
@@ -76,7 +75,7 @@ public class PlacesListFragment extends Fragment {
     }
 
     private void setupSwipeToRefresh() {
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.primary, R.color.accent);
+        mSwipeRefreshLayout.setColorSchemeResources(pl.naniewicz.wrocloveplaces.R.color.primary, pl.naniewicz.wrocloveplaces.R.color.accent);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {

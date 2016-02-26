@@ -1,4 +1,4 @@
-package com.nako.wrocloveplaces.ui.activity;
+package pl.naniewicz.wrocloveplaces.ui.activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,9 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.nako.wrocloveplaces.R;
-import com.nako.wrocloveplaces.ui.adapter.ViewPagerAdapter;
-import com.nako.wrocloveplaces.ui.fragment.PlacesListFragment;
+import pl.naniewicz.wrocloveplaces.ui.adapter.ViewPagerAdapter;
+import pl.naniewicz.wrocloveplaces.ui.fragment.PlacesListFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -42,18 +41,18 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-    @Bind(R.id.toolbar) Toolbar mToolbar;
-    @Bind(R.id.navigation_view) NavigationView mNavigationView;
-    @Bind(R.id.viewpager) ViewPager mViewPager;
-    @Bind(R.id.fab) FloatingActionButton mFloatingActionButton;
-    @Bind(R.id.tab_layout) TabLayout mTabLayout;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.drawer_layout) DrawerLayout mDrawerLayout;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.toolbar) Toolbar mToolbar;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.navigation_view) NavigationView mNavigationView;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.viewpager) ViewPager mViewPager;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.fab) FloatingActionButton mFloatingActionButton;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.tab_layout) TabLayout mTabLayout;
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(pl.naniewicz.wrocloveplaces.R.layout.activity_main);
         ButterKnife.bind(this);
         setupToolbar();
         setupDrawerContent(mNavigationView);
@@ -70,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
     private void setupToolbar() {
         setSupportActionBar(mToolbar);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,
-                R.string.drawer_open, R.string.drawer_close);
+                pl.naniewicz.wrocloveplaces.R.string.drawer_open, pl.naniewicz.wrocloveplaces.R.string.drawer_close);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main_activity_actions, menu);
+        getMenuInflater().inflate(pl.naniewicz.wrocloveplaces.R.menu.menu_main_activity_actions, menu);
         return true;
     }
 
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unused")
-    @OnClick(R.id.fab)
+    @OnClick(pl.naniewicz.wrocloveplaces.R.id.fab)
     public void onFabClick() {
         Snackbar.make(mFloatingActionButton, "I'm snackbar!", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();

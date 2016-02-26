@@ -1,4 +1,4 @@
-package com.nako.wrocloveplaces.model;
+package pl.naniewicz.wrocloveplaces.model;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -65,10 +65,10 @@ public class Place implements Parcelable {
     }
 
     protected Place(Parcel in) {
-        this.mPlaceName = in.readString();
-        this.mDescription = in.readString();
-        this.mReview = in.readString();
-        this.mDrawableRes = in.readInt();
+        mPlaceName = in.readString();
+        mDescription = in.readString();
+        mReview = in.readString();
+        mDrawableRes = in.readInt();
     }
 
     public static final Parcelable.Creator<Place> CREATOR = new Parcelable.Creator<Place>() {
