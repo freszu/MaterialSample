@@ -39,7 +39,7 @@ import butterknife.ButterKnife;
 public class PlacesListFragment extends Fragment {
 
     @Bind(pl.naniewicz.wrocloveplaces.R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.recyclerview) RecyclerView mRecyclerView;
+    @Bind(pl.naniewicz.wrocloveplaces.R.id.recycler_view) RecyclerView mRecyclerView;
 
     private RecyclerViewAdapter mRecyclerViewAdapter;
 
