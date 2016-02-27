@@ -38,7 +38,6 @@ public class PlaceListFragment extends Fragment {
 
     @Bind(pl.naniewicz.wrocloveplaces.R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
     @Bind(pl.naniewicz.wrocloveplaces.R.id.recycler_view) RecyclerView mRecyclerView;
-
     private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
 
     @Override
