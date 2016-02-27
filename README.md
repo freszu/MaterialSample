@@ -1,15 +1,16 @@
 ![alt text](https://raw.githubusercontent.com/freszu/WroclovePlaces/master/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png)
 
 # WroclovePlaces
-Material design sample prepared by @freszu and @szymenpl.
+Material design sample android app prepared by @freszu and @szymenpl.
 
 # Motivation
 App prepared for material design presentation held on PWr. It's supposed to be fairly easy project, not using any sophisticated libraries and representing some functionality of the Android Design Support Library.
 
 # Used libraries
 * [Picasso](http://square.github.io/picasso/)
-* [ButterKnife](http://jakewharton.github.io/butterknife/)
+* [Butter Knife](http://jakewharton.github.io/butterknife/)
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView)
+* [Material Dialogs](https://github.com/afollestad/material-dialogs)
 
 # Attributions
 * <a href="https://raw.githubusercontent.com/freszu/WroclovePlaces/master/app/src/main/res/drawable-nodpi/wroclaw_centennial_hall0.jpg">
