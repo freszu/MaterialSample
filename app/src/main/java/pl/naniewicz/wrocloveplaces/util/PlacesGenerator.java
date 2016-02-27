@@ -2,6 +2,7 @@ package pl.naniewicz.wrocloveplaces.util;
 
 import android.content.Context;
 
+import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
 
 import java.util.ArrayList;
@@ -69,9 +70,9 @@ public class PlacesGenerator {
         switch (RANDOM.nextInt(2)) {
             default:
             case 0:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_cathedral_island_0;
+                return R.drawable.wroclaw_cathedral_island_0;
             case 1:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_cathedral_island_1;
+                return R.drawable.wroclaw_cathedral_island_1;
         }
     }
 
@@ -79,9 +80,9 @@ public class PlacesGenerator {
         switch (RANDOM.nextInt(2)) {
             default:
             case 0:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_centennial_hall0;
+                return R.drawable.wroclaw_centennial_hall0;
             case 1:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_centennial_hall_1;
+                return R.drawable.wroclaw_centennial_hall_1;
         }
     }
 
@@ -89,9 +90,9 @@ public class PlacesGenerator {
         switch (RANDOM.nextInt(2)) {
             default:
             case 0:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_main_railway_station_0;
+                return R.drawable.wroclaw_main_railway_station_0;
             case 1:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_main_railway_station_1;
+                return R.drawable.wroclaw_main_railway_station_1;
         }
     }
 
@@ -99,9 +100,9 @@ public class PlacesGenerator {
         switch (RANDOM.nextInt(2)) {
             default:
             case 0:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_market_square_0;
+                return R.drawable.wroclaw_market_square_0;
             case 1:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_market_square_1;
+                return R.drawable.wroclaw_market_square_1;
         }
     }
 
@@ -109,21 +110,21 @@ public class PlacesGenerator {
         switch (RANDOM.nextInt(2)) {
             default:
             case 0:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_town_hall_0;
+                return R.drawable.wroclaw_town_hall_0;
             case 1:
-                return pl.naniewicz.wrocloveplaces.R.drawable.wroclaw_town_hall_1;
+                return R.drawable.wroclaw_town_hall_1;
         }
     }
 
     private static String getPlaceName(Context context, int id) {
-        return context.getResources().getStringArray(pl.naniewicz.wrocloveplaces.R.array.places)[id];
+        return context.getResources().getStringArray(R.array.places)[id];
     }
 
     private static String getDescription(Context context) {
-        return context.getString(pl.naniewicz.wrocloveplaces.R.string.lorem_ipsum);
+        return context.getString(R.string.lorem_ipsum);
     }
 
     private static String getReview(Context context) {
-        return context.getString(pl.naniewicz.wrocloveplaces.R.string.lorem_ipsum);
+        return context.getString(R.string.lorem_ipsum);
     }
 }
