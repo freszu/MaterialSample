@@ -26,10 +26,10 @@
     <string name="action">Action</string>
     <string name="settings">Settings</string>
     <string name="msg_details_fab">I\'m fab!</string>
-    <string name="title_activity_form">Formularz</string>
-    <string name="hint_email">Adres email</string>
-    <string name="hint_password">Hasło</string>
-    <string name="action_login">Zaloguj się</string>
-    <string name="error_empty_pass">Podaj hasło</string>
-    <string name="error_invalid_email">Podaj poprawny email</string>
+    <string name="title_activity_form">Login form</string>
+    <string name="hint_email">Email address</string>
+    <string name="hint_password">Password</string>
+    <string name="action_login">Login</string>
+    <string name="error_empty_pass">Enter password</string>
+    <string name="error_invalid_email">Enter valid email</string>
 </resources>
