@@ -1,6 +1,8 @@
-package pl.naniewicz.wrocloveplaces.ui.activity;
+package pl.naniewicz.wrocloveplaces.ui.main;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -19,8 +21,8 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.naniewicz.wrocloveplaces.R;
-import pl.naniewicz.wrocloveplaces.ui.adapter.ViewPagerAdapter;
-import pl.naniewicz.wrocloveplaces.ui.fragment.PlacesListFragment;
+import pl.naniewicz.wrocloveplaces.ui.form.FormActivity;
+import pl.naniewicz.wrocloveplaces.ui.widget.adapter.ViewPagerAdapter;
 
 /**
  * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
@@ -50,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(pl.naniewicz.wrocloveplaces.R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setupToolbar();
         setupDrawerContent(mNavigationView);
@@ -72,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(pl.naniewicz.wrocloveplaces.R.menu.menu_main_activity_actions, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -103,11 +105,25 @@ public class MainActivity extends AppCompatActivity {
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
-                        menuItem.setChecked(true);
-                        mDrawerLayout.closeDrawers();
-                        return true;
+                        switch (menuItem.getItemId()) {
+                            case R.id.activity_form:
+                                goToFormActivity();
+                                return true;
+                        }
+                        return false;
                     }
                 });
+    }
+
+    private void goToFormActivity() {
+        mDrawerLayout.closeDrawers();
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this, FormActivity.class);
+                startActivity(intent);
+            }
+        }, 250);
     }
 
     @SuppressWarnings("unused")

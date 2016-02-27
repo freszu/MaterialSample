@@ -1,4 +1,4 @@
-package pl.naniewicz.wrocloveplaces.ui.activity;
+package pl.naniewicz.wrocloveplaces.ui.place;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -57,7 +57,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main_activity_actions, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -91,5 +91,4 @@ public class PlaceDetailActivity extends AppCompatActivity {
         mTextViewPlaceDescription.setText(mPlace.getDescription());
         mTextViewPlaceReview.setText(mPlace.getReview());
     }
-
 }

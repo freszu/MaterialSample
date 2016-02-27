@@ -22,6 +22,7 @@ import java.util.Random;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 public class PlacesGenerator {
+
     private static final int CATHEDRAL_ISLAND = 0;
     private static final int CENTENNIAL_HALL = 1;
     private static final int MAIN_RAILWAY_STATION = 2;
@@ -61,7 +62,6 @@ public class PlacesGenerator {
                 return getRandomMarketSquareDrawable();
             case TOWN_HALL:
                 return getRandomTownHallDrawable();
-
         }
     }
 

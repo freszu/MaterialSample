@@ -1,4 +1,4 @@
-package pl.naniewicz.wrocloveplaces.ui.adapter;
+package pl.naniewicz.wrocloveplaces.ui.widget.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,7 +21,9 @@ import java.util.List;
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+
 public class ViewPagerAdapter extends FragmentPagerAdapter {
+
     private final List<Fragment> mFragments;
     private final List<String> mFragmentTitles;
 

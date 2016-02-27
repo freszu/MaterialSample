@@ -1,4 +1,4 @@
-package pl.naniewicz.wrocloveplaces.ui.adapter;
+package pl.naniewicz.wrocloveplaces.ui.widget.adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +10,8 @@ import android.widget.TextView;
 
 import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
-import pl.naniewicz.wrocloveplaces.ui.activity.PlaceDetailActivity;
+import pl.naniewicz.wrocloveplaces.ui.place.PlaceDetailActivity;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -33,7 +34,9 @@ import butterknife.ButterKnife;
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
+
 public class RecyclerViewAdapter extends RecyclerView.Adapter {
+
     private List<Place> mPlaces;
 
     public RecyclerViewAdapter() {
@@ -41,6 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     public static class PlaceViewHolder extends RecyclerView.ViewHolder {
+
         @Bind(R.id.place_photo) ImageView mImageViewPlacePhoto;
         @Bind(R.id.place_place_name) TextView mTextViewPlaceName;
         View mItemView;
