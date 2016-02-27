@@ -15,6 +15,7 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
 import pl.naniewicz.wrocloveplaces.ui.widget.adapter.PlacesRecyclerViewAdapter;
 import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
@@ -36,13 +37,13 @@ import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
 public class PlaceListFragment extends Fragment {
 
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.recycler_view) RecyclerView mRecyclerView;
+    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+    @Bind(R.id.recycler_view) RecyclerView mRecyclerView;
     private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(pl.naniewicz.wrocloveplaces.R.layout.fragment_places_list, container, false);
+        View view = inflater.inflate(R.layout.fragment_places_list, container, false);
         ButterKnife.bind(this, view);
         setupSwipeToRefresh();
         setupRecyclerViewAdapter(mRecyclerView.getContext());
@@ -61,7 +62,7 @@ public class PlaceListFragment extends Fragment {
     }
 
     private void setupSwipeToRefresh() {
-        mSwipeRefreshLayout.setColorSchemeResources(pl.naniewicz.wrocloveplaces.R.color.primary, pl.naniewicz.wrocloveplaces.R.color.accent);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.primary, R.color.accent);
         mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
