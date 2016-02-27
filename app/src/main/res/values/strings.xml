@@ -21,4 +21,10 @@
     <string name="backdrop">Backdrop image</string>
     <string name="description">Description</string>
     <string name="review">Review</string>
+    <string name="title_activity_form">Formularz</string>
+    <string name="hint_email">Adres email</string>
+    <string name="hint_password">Hasło</string>
+    <string name="action_login">Zaloguj się</string>
+    <string name="error_empty_pass">Podaj hasło</string>
+    <string name="error_invalid_email">Podaj poprawny email</string>
 </resources>

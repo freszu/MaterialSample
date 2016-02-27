@@ -22,6 +22,7 @@ import android.support.annotation.DrawableRes;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 public class Place implements Parcelable {
+
     private String mPlaceName;
     private String mDescription;
     private String mReview;

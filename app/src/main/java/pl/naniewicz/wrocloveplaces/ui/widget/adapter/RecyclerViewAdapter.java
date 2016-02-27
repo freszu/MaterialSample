@@ -1,4 +1,4 @@
-package pl.naniewicz.wrocloveplaces.ui.adapter;
+package pl.naniewicz.wrocloveplaces.ui.widget.adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -10,7 +10,8 @@ import android.widget.TextView;
 
 import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
-import pl.naniewicz.wrocloveplaces.ui.activity.PlaceDetailActivity;
+import pl.naniewicz.wrocloveplaces.ui.place.PlaceDetailActivity;
+
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -21,22 +22,23 @@ import butterknife.ButterKnife;
 
 /**
  * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
- * <p>
+ * <p/>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
- * <p>
+ * <p/>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * <p>
+ * <p/>
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter {
+
     private List<Place> mPlaces;
 
     public RecyclerViewAdapter() {
@@ -44,6 +46,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     public static class PlaceViewHolder extends RecyclerView.ViewHolder {
+
         @Bind(R.id.place_photo) ImageView mImageViewPlacePhoto;
         @Bind(R.id.place_place_name) TextView mTextViewPlaceName;
         View mItemView;

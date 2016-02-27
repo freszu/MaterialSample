@@ -1,4 +1,4 @@
-package pl.naniewicz.wrocloveplaces.ui.fragment;
+package pl.naniewicz.wrocloveplaces.ui.main;
 
 import android.content.Context;
 import android.os.AsyncTask;
@@ -13,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import pl.naniewicz.wrocloveplaces.model.Place;
-import pl.naniewicz.wrocloveplaces.ui.adapter.RecyclerViewAdapter;
+import pl.naniewicz.wrocloveplaces.ui.widget.adapter.RecyclerViewAdapter;
 import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
 import java.util.List;
@@ -23,17 +23,17 @@ import butterknife.ButterKnife;
 
 /**
  * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
- * <p>
+ * <p/>
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
- * <p>
+ * <p/>
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * <p>
+ * <p/>
  * You should have received a copy of the GNU General Public License along
  * with this program; if not, write to the Free Software Foundation, Inc.,
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
@@ -50,7 +50,6 @@ public class PlacesListFragment extends Fragment {
     public void onAttach(Context context) {
         super.onAttach(context);
         Log.i("Fragment", "OnAttach");
-
     }
 
     @Override
@@ -62,7 +61,6 @@ public class PlacesListFragment extends Fragment {
         setupRecyclerView();
         return view;
     }
-
 
     private void setupRecyclerView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
@@ -88,7 +86,6 @@ public class PlacesListFragment extends Fragment {
         mSwipeRefreshLayout.setRefreshing(true);
         new DummyBackgroundTask(mRecyclerView.getContext()).execute();
     }
-
 
     private void onRefreshComplete(List<Place> places) {
         mSwipeRefreshLayout.setRefreshing(false);
@@ -119,7 +116,5 @@ public class PlacesListFragment extends Fragment {
         protected void onPostExecute(List<Place> result) {
             onRefreshComplete(result);
         }
-
     }
-
 }
