@@ -35,7 +35,7 @@ public class FormActivity extends AppCompatActivity {
     @Bind(R.id.til_email) TextInputLayout mEmailTextInputLayout;
     @Bind(R.id.til_password) TextInputLayout mPasswordTextInputLayout;
     private DialogFragment mHelpDialogFragment;
-    private static final String TAG_HELP_FRAGMENT = "tag_help_framgent";
+    private static final String TAG_HELP_FRAGMENT = "TAG_HELP_FRAGMENT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

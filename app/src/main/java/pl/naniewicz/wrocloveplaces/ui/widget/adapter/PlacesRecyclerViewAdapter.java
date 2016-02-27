@@ -42,19 +42,6 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
         mPlaces = new ArrayList<>();
     }
 
-    public static class PlaceViewHolder extends RecyclerView.ViewHolder {
-
-        @Bind(R.id.place_photo) ImageView mImageViewPlacePhoto;
-        @Bind(R.id.place_place_name) TextView mTextViewPlaceName;
-        View mItemView;
-
-        public PlaceViewHolder(View itemView) {
-            super(itemView);
-            ButterKnife.bind(this, itemView);
-            mItemView = itemView;
-        }
-    }
-
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -71,14 +58,18 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
                 .fit()
                 .centerCrop()
                 .into(placeViewHolder.mImageViewPlacePhoto);
-        placeViewHolder.mItemView.setOnClickListener(new View.OnClickListener() {
+        placeViewHolder.mItemView.setOnClickListener(getOnViewHolderClickListener(position));
+    }
+
+    private View.OnClickListener getOnViewHolderClickListener(final int position) {
+        return new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), PlaceDetailActivity.class);
-                intent.putExtra("EXTRA_PLACE", mPlaces.get(position));
+                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE, mPlaces.get(position));
                 v.getContext().startActivity(intent);
             }
-        });
+        };
     }
 
     @Override
@@ -89,5 +80,18 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
     public void setPlaces(List<Place> places) {
         mPlaces = places;
         notifyDataSetChanged();
+    }
+
+    public static class PlaceViewHolder extends RecyclerView.ViewHolder {
+
+        @Bind(R.id.place_photo) ImageView mImageViewPlacePhoto;
+        @Bind(R.id.place_place_name) TextView mTextViewPlaceName;
+        View mItemView;
+
+        public PlaceViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+            mItemView = itemView;
+        }
     }
 }

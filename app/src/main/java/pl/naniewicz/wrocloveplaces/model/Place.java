@@ -57,10 +57,10 @@ public class Place implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(this.mPlaceName);
-        dest.writeString(this.mDescription);
-        dest.writeString(this.mReview);
-        dest.writeInt(this.mDrawableRes);
+        dest.writeString(mPlaceName);
+        dest.writeString(mDescription);
+        dest.writeString(mReview);
+        dest.writeInt(mDrawableRes);
     }
 
     protected Place(Parcel in) {

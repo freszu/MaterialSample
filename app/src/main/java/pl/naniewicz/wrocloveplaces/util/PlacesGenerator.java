@@ -2,11 +2,11 @@ package pl.naniewicz.wrocloveplaces.util;
 
 import android.content.Context;
 
-import pl.naniewicz.wrocloveplaces.R;
-import pl.naniewicz.wrocloveplaces.model.Place;
-
 import java.util.ArrayList;
 import java.util.Random;
+
+import pl.naniewicz.wrocloveplaces.R;
+import pl.naniewicz.wrocloveplaces.model.Place;
 
 /**
  * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak

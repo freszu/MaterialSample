@@ -72,7 +72,6 @@ public class PlaceDetailActivity extends AppCompatActivity {
                 Toast.makeText(this, R.string.menu_share, Toast.LENGTH_SHORT).show();
                 return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 

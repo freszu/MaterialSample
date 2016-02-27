@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,12 +40,6 @@ public class PlaceListFragment extends Fragment {
     @Bind(pl.naniewicz.wrocloveplaces.R.id.recycler_view) RecyclerView mRecyclerView;
 
     private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.i("Fragment", "OnAttach");
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
