@@ -108,7 +108,13 @@ public class MainActivity extends AppCompatActivity {
                         switch (menuItem.getItemId()) {
                             case R.id.activity_form:
                                 goToFormActivity();
-                                return true;
+                                break;
+                            case R.id.activity_map:
+                                Toast.makeText(MainActivity.this, R.string.map, Toast.LENGTH_SHORT).show();
+                                break;
+                            case R.id.activity_settings:
+                                Toast.makeText(MainActivity.this, R.string.settings, Toast.LENGTH_SHORT).show();
+                                break;
                         }
                         return false;
                     }
