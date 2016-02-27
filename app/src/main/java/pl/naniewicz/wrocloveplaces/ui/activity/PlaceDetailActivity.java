@@ -8,13 +8,30 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
+
+/**
+ * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ */
 
 public class PlaceDetailActivity extends AppCompatActivity {
 
@@ -44,6 +61,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
         return true;
     }
 
+    @SuppressWarnings("unused")
+    @OnClick(R.id.fab)
+    public void onFabClick() {
+        Toast.makeText(this, R.string.msg_details_fab, Toast.LENGTH_SHORT).show();
+    }
+
     private void getPlaceFromIntent() {
         Intent intent = getIntent();
         if (intent != null) {
@@ -53,7 +76,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         setSupportActionBar(mToolbar);
-        if(getSupportActionBar() != null) {
+        if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
         mCollapsingToolbarLayout.setTitle(mPlace.getPlaceName());

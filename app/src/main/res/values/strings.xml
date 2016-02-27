@@ -21,4 +21,9 @@
     <string name="backdrop">Backdrop image</string>
     <string name="description">Description</string>
     <string name="review">Review</string>
+    <string name="msg_snackbar">I\'m snackbar!</string>
+    <string name="msg_snackbar_action_string">Some action!</string>
+    <string name="action">Action</string>
+    <string name="settings">Settings</string>
+    <string name="msg_details_fab">I\'m fab!</string>
 </resources>

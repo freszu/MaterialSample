@@ -5,7 +5,6 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,6 +12,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -22,21 +23,18 @@ import pl.naniewicz.wrocloveplaces.ui.adapter.ViewPagerAdapter;
 import pl.naniewicz.wrocloveplaces.ui.fragment.PlacesListFragment;
 
 /**
- *  Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
-
- *  This program is free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 2 of the License, or
- *  (at your option) any later version.
-
- *  This program is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
-
- *  You should have received a copy of the GNU General Public License along
- *  with this program; if not, write to the Free Software Foundation, Inc.,
- *  51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
+ * (at your option) any later version.
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * You should have received a copy of the GNU General Public License along
+ * with this program; if not, write to the Free Software Foundation, Inc.,
+ * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
 public class MainActivity extends AppCompatActivity {
@@ -81,15 +79,15 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+            case R.id.action_settings:
+                Toast.makeText(this, R.string.settings, Toast.LENGTH_SHORT).show();
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(),6);
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), 6);
         adapter.addFragment(new PlacesListFragment(), "Category 1");
         adapter.addFragment(new PlacesListFragment(), "Category 2");
         adapter.addFragment(new PlacesListFragment(), "Category 3");
@@ -115,9 +113,17 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.fab)
     public void onFabClick() {
-        Snackbar.make(mFloatingActionButton, "I'm snackbar!", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show();
+        Snackbar.make(mFloatingActionButton, R.string.msg_snackbar, Snackbar.LENGTH_LONG)
+                .setAction(R.string.action, getSnackbarAction()).show();
+    }
+
+    private View.OnClickListener getSnackbarAction() {
+        return new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(v.getContext(), R.string.msg_snackbar_action_string, Toast.LENGTH_SHORT).show();
+            }
+        };
     }
 
 }
-
