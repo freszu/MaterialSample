@@ -3,7 +3,10 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="detail_backdrop_height">256dp</dimen>
+    <dimen name="collapsing_toolbar_backdrop_height">256dp</dimen>
+    <dimen name="collapsing_toolbar_top_shadow_height">48dp</dimen>
+    <dimen name="collapsing_toolbar_bottom_shadow_height">64dp</dimen>
+
     <dimen name="card_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="list_item_avatar_size">40dp</dimen>
@@ -12,5 +15,7 @@
     <dimen name="card_content_padding_left_right">16dp</dimen>
     <dimen name="appbar_fab_padding">24dp</dimen>
     <dimen name="default_padding">16dp</dimen>
+
+
 
 </resources>
