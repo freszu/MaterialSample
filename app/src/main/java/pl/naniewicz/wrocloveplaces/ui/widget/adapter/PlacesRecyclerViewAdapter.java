@@ -75,7 +75,7 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), PlaceDetailActivity.class);
-                intent.putExtra("EXTRA_PLACE", mPlaces.get(position));
+                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE, mPlaces.get(position));
                 v.getContext().startActivity(intent);
             }
         });
