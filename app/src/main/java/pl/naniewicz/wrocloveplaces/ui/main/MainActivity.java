@@ -90,12 +90,12 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), 6);
-        adapter.addFragment(new PlacesListFragment(), "Category 1");
-        adapter.addFragment(new PlacesListFragment(), "Category 2");
-        adapter.addFragment(new PlacesListFragment(), "Category 3");
-        adapter.addFragment(new PlacesListFragment(), "Category 4");
-        adapter.addFragment(new PlacesListFragment(), "Category 5");
-        adapter.addFragment(new PlacesListFragment(), "Category 6");
+        adapter.addFragment(new PlaceListFragment(), "Category 1");
+        adapter.addFragment(new PlaceListFragment(), "Category 2");
+        adapter.addFragment(new PlaceListFragment(), "Category 3");
+        adapter.addFragment(new PlaceListFragment(), "Category 4");
+        adapter.addFragment(new PlaceListFragment(), "Category 5");
+        adapter.addFragment(new PlaceListFragment(), "Category 6");
         viewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(adapter.getCount() - 1);
     }

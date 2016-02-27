@@ -8,10 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import pl.naniewicz.wrocloveplaces.R;
-import pl.naniewicz.wrocloveplaces.model.Place;
-import pl.naniewicz.wrocloveplaces.ui.place.PlaceDetailActivity;
-
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -19,6 +15,9 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import pl.naniewicz.wrocloveplaces.R;
+import pl.naniewicz.wrocloveplaces.model.Place;
+import pl.naniewicz.wrocloveplaces.ui.place.PlaceDetailActivity;
 
 /**
  * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
@@ -35,11 +34,11 @@ import butterknife.ButterKnife;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-public class RecyclerViewAdapter extends RecyclerView.Adapter {
+public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
 
     private List<Place> mPlaces;
 
-    public RecyclerViewAdapter() {
+    public PlacesRecyclerViewAdapter() {
         mPlaces = new ArrayList<>();
     }
 

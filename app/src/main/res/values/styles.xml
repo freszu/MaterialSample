@@ -8,10 +8,9 @@
         <item name="colorPrimary">@color/primary</item>
         <item name="colorPrimaryDark">@color/primary_dark</item>
         <item name="colorAccent">@color/accent</item>
-        <item name="android:windowBackground">@color/window_background</item>
     </style>
 
-    <style name="Widget.CardContent" parent="android:Widget">
+    <style name="Widget.PlaceCardContent" parent="android:Widget">
         <item name="android:paddingLeft">@dimen/card_content_padding_left_right</item>
         <item name="android:paddingRight">@dimen/card_content_padding_left_right</item>
         <item name="android:paddingTop">@dimen/card_content_padding_top_bottom</item>
@@ -21,10 +20,6 @@
 
     <style name="LoginButton" parent="Widget.AppCompat.Button">
         <item name="colorButtonNormal">@color/primary</item>
-    </style>
-
-    <style name="AppTheme.NormalStatusBar" parent="AppTheme.Base">
-        <item name="android:statusBarColor">@color/primary_dark</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>

@@ -1,18 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-xmlns:android="http://schemas.android.com/apk/res/android"
-android:layout_width="match_parent"
-android:layout_height="192dp"
-android:background="?attr/colorPrimaryDark"
-android:gravity="bottom"
-android:orientation="vertical"
-android:padding="16dp"
-android:theme="@style/ThemeOverlay.AppCompat.Dark">
-
-<TextView
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="@string/username"
-    android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+    android:layout_height="@dimen/drawer_header_height"
+    android:background="?attr/colorPrimaryDark">
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/nav_header_content_margin"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image"
+            android:layout_width="@dimen/profile_picture_height"
+            android:layout_height="@dimen/profile_picture_height"
+            android:layout_marginBottom="@dimen/default_margin_halved"
+            android:src="@drawable/nav_header_default_profile"/>
+
+        <TextView
+            android:id="@+id/username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</RelativeLayout>

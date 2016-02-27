@@ -34,6 +34,7 @@
     <string name="error_invalid_email">Enter valid email</string>
     <string name="help">Help</string>
     <string name="msg_login_info">Help content</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="menu_help">Help</string>
+    <string name="email">someone@email.com</string>
 </resources>

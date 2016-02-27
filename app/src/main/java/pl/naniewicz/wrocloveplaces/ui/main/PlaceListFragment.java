@@ -12,14 +12,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import pl.naniewicz.wrocloveplaces.model.Place;
-import pl.naniewicz.wrocloveplaces.ui.widget.adapter.RecyclerViewAdapter;
-import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
-
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import pl.naniewicz.wrocloveplaces.model.Place;
+import pl.naniewicz.wrocloveplaces.ui.widget.adapter.PlacesRecyclerViewAdapter;
+import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
 /**
  * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
@@ -36,12 +35,12 @@ import butterknife.ButterKnife;
  * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
  */
 
-public class PlacesListFragment extends Fragment {
+public class PlaceListFragment extends Fragment {
 
     @Bind(pl.naniewicz.wrocloveplaces.R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
     @Bind(pl.naniewicz.wrocloveplaces.R.id.recycler_view) RecyclerView mRecyclerView;
 
-    private RecyclerViewAdapter mRecyclerViewAdapter;
+    private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
 
     @Override
     public void onAttach(Context context) {
@@ -61,12 +60,12 @@ public class PlacesListFragment extends Fragment {
 
     private void setupRecyclerView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-        mRecyclerView.setAdapter(mRecyclerViewAdapter);
+        mRecyclerView.setAdapter(mPlacesRecyclerViewAdapter);
     }
 
     private void setupRecyclerViewAdapter(Context context) {
-        mRecyclerViewAdapter = new RecyclerViewAdapter();
-        mRecyclerViewAdapter.setPlaces(PlacesGenerator.getRandomPlaces(context, 30));
+        mPlacesRecyclerViewAdapter = new PlacesRecyclerViewAdapter();
+        mPlacesRecyclerViewAdapter.setPlaces(PlacesGenerator.getRandomPlaces(context, 30));
     }
 
     private void setupSwipeToRefresh() {
@@ -86,7 +85,7 @@ public class PlacesListFragment extends Fragment {
 
     private void onRefreshComplete(List<Place> places) {
         mSwipeRefreshLayout.setRefreshing(false);
-        mRecyclerViewAdapter.setPlaces(places);
+        mPlacesRecyclerViewAdapter.setPlaces(places);
     }
 
     private class DummyBackgroundTask extends AsyncTask<Void, Void, List<Place>> {
