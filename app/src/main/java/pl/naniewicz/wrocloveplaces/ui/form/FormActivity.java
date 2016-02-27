@@ -1,10 +1,13 @@
 package pl.naniewicz.wrocloveplaces.ui.form;
 
+import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Patterns;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,6 +34,8 @@ public class FormActivity extends AppCompatActivity {
     @Bind(R.id.toolbar) Toolbar mToolbar;
     @Bind(R.id.til_email) TextInputLayout mEmailTextInputLayout;
     @Bind(R.id.til_password) TextInputLayout mPasswordTextInputLayout;
+    private DialogFragment mHelpDialogFragment;
+    private static final String TAG_HELP_FRAGMENT = "tag_help_framgent";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,11 @@ public class FormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_form);
         ButterKnife.bind(this);
         setupToolbar();
+        setupHelpDialogFragment();
+    }
+
+    private void setupHelpDialogFragment() {
+        mHelpDialogFragment = new HelpDialogFragment();
     }
 
     private void setupToolbar() {
@@ -45,6 +55,21 @@ public class FormActivity extends AppCompatActivity {
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_form, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_login_help:
+                mHelpDialogFragment.show(getFragmentManager(), TAG_HELP_FRAGMENT);
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @SuppressWarnings("unused")

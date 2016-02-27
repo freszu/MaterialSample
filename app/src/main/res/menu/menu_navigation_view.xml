@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@+id/activity_form"
-        android:checked="false"
-        android:title="@string/title_activity_form"/>
+    <group>
+        <item
+            android:id="@+id/activity_form"
+            android:checked="false"
+            android:icon="@drawable/ic_vpn_key_black_24dp"
+            android:title="@string/title_activity_form"/>
+    </group>
 </menu>

@@ -32,4 +32,8 @@
     <string name="action_login">Login</string>
     <string name="error_empty_pass">Enter password</string>
     <string name="error_invalid_email">Enter valid email</string>
+    <string name="help">Help</string>
+    <string name="msg_login_info">Help content</string>
+    <string name="ok">Ok</string>
+    <string name="menu_help">Help</string>
 </resources>
