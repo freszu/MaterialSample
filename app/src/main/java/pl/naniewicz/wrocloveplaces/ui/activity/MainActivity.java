@@ -14,12 +14,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import pl.naniewicz.wrocloveplaces.ui.adapter.ViewPagerAdapter;
-import pl.naniewicz.wrocloveplaces.ui.fragment.PlacesListFragment;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import pl.naniewicz.wrocloveplaces.R;
+import pl.naniewicz.wrocloveplaces.ui.adapter.ViewPagerAdapter;
+import pl.naniewicz.wrocloveplaces.ui.fragment.PlacesListFragment;
 
 /**
  *  Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
@@ -41,12 +41,12 @@ import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.drawer_layout) DrawerLayout mDrawerLayout;
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.toolbar) Toolbar mToolbar;
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.navigation_view) NavigationView mNavigationView;
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.viewpager) ViewPager mViewPager;
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.fab) FloatingActionButton mFloatingActionButton;
-    @Bind(pl.naniewicz.wrocloveplaces.R.id.tab_layout) TabLayout mTabLayout;
+    @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
+    @Bind(R.id.toolbar) Toolbar mToolbar;
+    @Bind(R.id.navigation_view) NavigationView mNavigationView;
+    @Bind(R.id.viewpager) ViewPager mViewPager;
+    @Bind(R.id.fab) FloatingActionButton mFloatingActionButton;
+    @Bind(R.id.tab_layout) TabLayout mTabLayout;
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @SuppressWarnings("unused")
-    @OnClick(pl.naniewicz.wrocloveplaces.R.id.fab)
+    @OnClick(R.id.fab)
     public void onFabClick() {
         Snackbar.make(mFloatingActionButton, "I'm snackbar!", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show();

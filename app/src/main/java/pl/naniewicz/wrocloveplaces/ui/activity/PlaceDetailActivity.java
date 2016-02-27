@@ -53,7 +53,9 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
     private void setupToolbar() {
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        if(getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         mCollapsingToolbarLayout.setTitle(mPlace.getPlaceName());
         loadBackdrop();
     }
