@@ -16,6 +16,4 @@
     <dimen name="appbar_fab_padding">24dp</dimen>
     <dimen name="default_padding">16dp</dimen>
 
-
-
 </resources>
