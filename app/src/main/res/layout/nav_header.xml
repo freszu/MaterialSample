@@ -3,24 +3,25 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/drawer_header_height"
+    android:layout_height="@dimen/nav_header_height"
     android:background="?attr/colorPrimaryDark">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_margin="@dimen/nav_header_content_margin"
+        android:layout_margin="@dimen/nav_header_content_padding"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
-            android:layout_width="@dimen/profile_picture_height"
-            android:layout_height="@dimen/profile_picture_height"
-            android:layout_marginBottom="@dimen/default_margin_halved"
+            android:layout_width="@dimen/nav_header_profile_picture_height"
+            android:layout_height="@dimen/nav_header_profile_picture_height"
+            android:layout_marginBottom="@dimen/nav_header_image_vertical_margin"
             android:src="@drawable/nav_header_default_profile"/>
 
         <TextView
