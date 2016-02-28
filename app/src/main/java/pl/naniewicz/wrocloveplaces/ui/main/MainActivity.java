@@ -55,8 +55,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setupToolbar();
-        setupDrawerContent(mNavigationView);
-        setupViewPager(mViewPager);
+        setupDrawerContent();
+        setupViewPager();
         mTabLayout.setupWithViewPager(mViewPager);
     }
 
@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void setupViewPager(ViewPager viewPager) {
+    private void setupViewPager() {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager(), 6);
         adapter.addFragment(new PlaceListFragment(), "Category 1");
         adapter.addFragment(new PlaceListFragment(), "Category 2");
@@ -95,12 +95,12 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new PlaceListFragment(), "Category 4");
         adapter.addFragment(new PlaceListFragment(), "Category 5");
         adapter.addFragment(new PlaceListFragment(), "Category 6");
-        viewPager.setAdapter(adapter);
+        mViewPager.setAdapter(adapter);
         mViewPager.setOffscreenPageLimit(adapter.getCount() - 1);
     }
 
-    private void setupDrawerContent(NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(
+    private void setupDrawerContent() {
+        mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
