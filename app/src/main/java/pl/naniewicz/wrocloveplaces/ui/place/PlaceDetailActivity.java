@@ -56,6 +56,13 @@ public class PlaceDetailActivity extends AppCompatActivity {
         setContent();
     }
 
+    private void getPlaceFromIntent() {
+        Intent intent = getIntent();
+        if (intent != null) {
+            mPlace = intent.getParcelableExtra(EXTRA_PLACE);
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_place_detail, menu);
@@ -79,13 +86,6 @@ public class PlaceDetailActivity extends AppCompatActivity {
     @OnClick(R.id.fab)
     public void onFabClick() {
         Toast.makeText(this, R.string.msg_details_fab, Toast.LENGTH_SHORT).show();
-    }
-
-    private void getPlaceFromIntent() {
-        Intent intent = getIntent();
-        if (intent != null) {
-            mPlace = intent.getParcelableExtra(EXTRA_PLACE);
-        }
     }
 
     private void setupToolbar() {

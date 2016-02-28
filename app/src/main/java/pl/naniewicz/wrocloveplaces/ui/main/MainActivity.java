@@ -106,7 +106,8 @@ public class MainActivity extends AppCompatActivity {
                     public boolean onNavigationItemSelected(MenuItem menuItem) {
                         switch (menuItem.getItemId()) {
                             case R.id.activity_form:
-                                goToFormActivity();
+                                mDrawerLayout.closeDrawers();
+                                startFormActivityDelayed();
                                 break;
                             case R.id.activity_map:
                                 Toast.makeText(MainActivity.this, R.string.map, Toast.LENGTH_SHORT).show();
@@ -120,8 +121,7 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    private void goToFormActivity() {
-        mDrawerLayout.closeDrawers();
+    private void startFormActivityDelayed() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -134,6 +134,10 @@ public class MainActivity extends AppCompatActivity {
     @SuppressWarnings("unused")
     @OnClick(R.id.fab)
     public void onFabClick() {
+        showSnackbar();
+    }
+
+    private void showSnackbar() {
         Snackbar.make(mFloatingActionButton, R.string.msg_snackbar, Snackbar.LENGTH_LONG)
                 .setAction(R.string.action, getSnackbarAction()).show();
     }
