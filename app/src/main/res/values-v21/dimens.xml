@@ -1,3 +1,4 @@
 <resources>
     <dimen name="collapsing_toolbar_top_shadow_height">73dp</dimen>
+    <dimen name="full_screen_card_margin">0dp</dimen>
 </resources>
