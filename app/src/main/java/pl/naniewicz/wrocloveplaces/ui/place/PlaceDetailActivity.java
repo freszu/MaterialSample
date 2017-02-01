@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.naniewicz.wrocloveplaces.R;
@@ -38,11 +38,11 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_PLACE = "EXTRA_PLACE";
 
-    @Bind(R.id.toolbar) Toolbar mToolbar;
-    @Bind(R.id.collapsing_toolbar) CollapsingToolbarLayout mCollapsingToolbarLayout;
-    @Bind(R.id.backdrop) ImageView mImageViewBackdrop;
-    @Bind(R.id.text_view_place_description) TextView mTextViewPlaceDescription;
-    @Bind(R.id.text_view_place_review) TextView mTextViewPlaceReview;
+    @BindView(R.id.toolbar) Toolbar mToolbar;
+    @BindView(R.id.collapsing_toolbar) CollapsingToolbarLayout mCollapsingToolbarLayout;
+    @BindView(R.id.backdrop) ImageView mImageViewBackdrop;
+    @BindView(R.id.text_view_place_description) TextView mTextViewPlaceDescription;
+    @BindView(R.id.text_view_place_review) TextView mTextViewPlaceReview;
 
     private Place mPlace;
 

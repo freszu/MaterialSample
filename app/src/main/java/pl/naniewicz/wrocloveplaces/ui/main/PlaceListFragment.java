@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
@@ -37,8 +37,8 @@ import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
 public class PlaceListFragment extends Fragment {
 
-    @Bind(R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(R.id.recycler_view) RecyclerView mRecyclerView;
+    @BindView(R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.recycler_view) RecyclerView mRecyclerView;
     private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
 
     @Override

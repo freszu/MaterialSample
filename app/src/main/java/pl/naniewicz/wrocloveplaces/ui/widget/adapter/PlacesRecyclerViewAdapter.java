@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
@@ -84,8 +84,8 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
 
     public static class PlaceViewHolder extends RecyclerView.ViewHolder {
 
-        @Bind(R.id.place_photo) ImageView mImageViewPlacePhoto;
-        @Bind(R.id.place_place_name) TextView mTextViewPlaceName;
+        @BindView(R.id.place_photo) ImageView mImageViewPlacePhoto;
+        @BindView(R.id.place_place_name) TextView mTextViewPlaceName;
         View mItemView;
 
         public PlaceViewHolder(View itemView) {

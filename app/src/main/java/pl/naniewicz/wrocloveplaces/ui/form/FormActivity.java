@@ -9,7 +9,7 @@ import android.util.Patterns;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.naniewicz.wrocloveplaces.R;
@@ -31,9 +31,9 @@ import pl.naniewicz.wrocloveplaces.R;
 
 public class FormActivity extends AppCompatActivity {
 
-    @Bind(R.id.toolbar) Toolbar mToolbar;
-    @Bind(R.id.til_email) TextInputLayout mEmailTextInputLayout;
-    @Bind(R.id.til_password) TextInputLayout mPasswordTextInputLayout;
+    @BindView(R.id.toolbar) Toolbar mToolbar;
+    @BindView(R.id.til_email) TextInputLayout mEmailTextInputLayout;
+    @BindView(R.id.til_password) TextInputLayout mPasswordTextInputLayout;
     private DialogFragment mHelpDialogFragment;
     private static final String TAG_HELP_FRAGMENT = "TAG_HELP_FRAGMENT";
 

@@ -17,7 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pl.naniewicz.wrocloveplaces.R;
@@ -41,12 +41,12 @@ import pl.naniewicz.wrocloveplaces.ui.widget.adapter.ViewPagerAdapter;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Bind(R.id.drawer_layout) DrawerLayout mDrawerLayout;
-    @Bind(R.id.toolbar) Toolbar mToolbar;
-    @Bind(R.id.navigation_view) NavigationView mNavigationView;
-    @Bind(R.id.viewpager) ViewPager mViewPager;
-    @Bind(R.id.fab) FloatingActionButton mFloatingActionButton;
-    @Bind(R.id.tab_layout) TabLayout mTabLayout;
+    @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
+    @BindView(R.id.toolbar) Toolbar mToolbar;
+    @BindView(R.id.navigation_view) NavigationView mNavigationView;
+    @BindView(R.id.viewpager) ViewPager mViewPager;
+    @BindView(R.id.fab) FloatingActionButton mFloatingActionButton;
+    @BindView(R.id.tab_layout) TabLayout mTabLayout;
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
