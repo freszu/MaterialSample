@@ -12,10 +12,6 @@ android {
         versionName "1.0"
     }
 
-    aaptOptions {
-        additionalParameters "--no-version-vectors"
-    }
-
     buildTypes {
         release {
             minifyEnabled false
