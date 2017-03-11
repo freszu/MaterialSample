@@ -12,13 +12,9 @@ import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
 import static android.content.ContentValues.TAG;
 
-/**
- * Created by Szymon Kozak on 11.03.2017.
- */
-
 class DummyBackgroundTask extends AsyncTask<Void, Void, List<Place>> {
 
-    static final int TASK_DURATION_MILLISECONDS = 3 * 1000;
+    private static final int TASK_DURATION_MILLISECONDS = 3 * 1000;
 
     private WeakReference<PlaceListFragment> mPlaceListFragmentWeakReference;
     private Context mApplicationContext;
