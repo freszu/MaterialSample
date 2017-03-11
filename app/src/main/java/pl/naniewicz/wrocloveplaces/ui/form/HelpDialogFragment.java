@@ -3,8 +3,7 @@ package pl.naniewicz.wrocloveplaces.ui.form;
 import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
-
-import com.afollestad.materialdialogs.MaterialDialog;
+import android.support.v7.app.AlertDialog;
 
 import pl.naniewicz.wrocloveplaces.R;
 
@@ -12,10 +11,10 @@ public class HelpDialogFragment extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return new MaterialDialog.Builder(getActivity())
-                .title(R.string.help)
-                .content(R.string.msg_login_info)
-                .positiveText(R.string.ok)
-                .build();
+        return new AlertDialog.Builder(getActivity())
+                .setTitle(R.string.help)
+                .setMessage(R.string.msg_login_info)
+                .setPositiveButton(R.string.ok, null)
+                .create();
     }
 }
