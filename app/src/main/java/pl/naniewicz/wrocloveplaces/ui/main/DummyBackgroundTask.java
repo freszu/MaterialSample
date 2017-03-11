@@ -10,11 +10,11 @@ import java.util.List;
 import pl.naniewicz.wrocloveplaces.model.Place;
 import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
-import static android.content.ContentValues.TAG;
-
 class DummyBackgroundTask extends AsyncTask<Void, Void, List<Place>> {
 
+    private static final String TAG = DummyBackgroundTask.class.getSimpleName();
     private static final int TASK_DURATION_MILLISECONDS = 3 * 1000;
+    private static final int PLACES_AMOUNT = 30;
 
     private WeakReference<PlaceListFragment> mPlaceListFragmentWeakReference;
     private Context mApplicationContext;
@@ -32,7 +32,7 @@ class DummyBackgroundTask extends AsyncTask<Void, Void, List<Place>> {
             Log.e(TAG, e.getMessage());
             Thread.currentThread().interrupt();
         }
-        return PlacesGenerator.getRandomPlaces(mApplicationContext, 30);
+        return PlacesGenerator.getRandomPlaces(mApplicationContext, PLACES_AMOUNT);
     }
 
     @Override

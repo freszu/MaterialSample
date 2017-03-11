@@ -21,8 +21,6 @@ import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
 public class PlaceListFragment extends Fragment {
 
-    private static final String TAG = PlaceListFragment.class.getSimpleName();
-
     @BindView(R.id.swipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.recycler_view)
