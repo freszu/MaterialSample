@@ -69,8 +69,10 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
 
     private static class PlaceViewHolder extends RecyclerView.ViewHolder {
 
-        @BindView(R.id.place_photo) ImageView mImageViewPlacePhoto;
-        @BindView(R.id.place_place_name) TextView mTextViewPlaceName;
+        @BindView(R.id.place_photo)
+        ImageView mImageViewPlacePhoto;
+        @BindView(R.id.place_place_name)
+        TextView mTextViewPlaceName;
         View mItemView;
 
         PlaceViewHolder(View itemView) {

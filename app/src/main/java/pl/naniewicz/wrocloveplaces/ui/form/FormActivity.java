@@ -18,9 +18,12 @@ public class FormActivity extends AppCompatActivity {
 
     private static final String TAG_HELP_FRAGMENT = "TAG_HELP_FRAGMENT";
 
-    @BindView(R.id.toolbar) Toolbar mToolbar;
-    @BindView(R.id.til_email) TextInputLayout mEmailTextInputLayout;
-    @BindView(R.id.til_password) TextInputLayout mPasswordTextInputLayout;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.til_email)
+    TextInputLayout mEmailTextInputLayout;
+    @BindView(R.id.til_password)
+    TextInputLayout mPasswordTextInputLayout;
 
     private DialogFragment mHelpDialogFragment;
 

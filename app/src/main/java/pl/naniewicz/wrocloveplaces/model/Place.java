@@ -9,7 +9,7 @@ public class Place implements Parcelable {
     private String mPlaceName;
     private String mDescription;
     private String mReview;
-    
+
     @DrawableRes
     private int mDrawableRes;
 

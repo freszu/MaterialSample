@@ -23,11 +23,16 @@ public class PlaceDetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_PLACE = "EXTRA_PLACE";
 
-    @BindView(R.id.toolbar) Toolbar mToolbar;
-    @BindView(R.id.collapsing_toolbar) CollapsingToolbarLayout mCollapsingToolbarLayout;
-    @BindView(R.id.backdrop) ImageView mImageViewBackdrop;
-    @BindView(R.id.text_view_place_description) TextView mTextViewPlaceDescription;
-    @BindView(R.id.text_view_place_review) TextView mTextViewPlaceReview;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.collapsing_toolbar)
+    CollapsingToolbarLayout mCollapsingToolbarLayout;
+    @BindView(R.id.backdrop)
+    ImageView mImageViewBackdrop;
+    @BindView(R.id.text_view_place_description)
+    TextView mTextViewPlaceDescription;
+    @BindView(R.id.text_view_place_review)
+    TextView mTextViewPlaceReview;
 
     private Place mPlace;
 
