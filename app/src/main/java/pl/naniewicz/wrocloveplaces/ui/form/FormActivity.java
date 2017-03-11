@@ -53,7 +53,7 @@ public class FormActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_login)
-    public void onLoginButtonClick() {
+    void onLoginButtonClick() {
         checkForm();
     }
 
