@@ -1,6 +1,5 @@
 package pl.naniewicz.wrocloveplaces.ui.widget.adapter;
 
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,42 +18,22 @@ import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
 import pl.naniewicz.wrocloveplaces.ui.place.PlaceDetailActivity;
 
-public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
+public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter<PlacesRecyclerViewAdapter.PlaceViewHolder> {
 
-    private List<Place> mPlaces;
+    private final List<Place> mPlaces;
 
     public PlacesRecyclerViewAdapter() {
         mPlaces = new ArrayList<>();
     }
 
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.recycler_view_item_place, parent, false);
-        return new PlaceViewHolder(view);
+    public PlaceViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        return new PlaceViewHolder(parent);
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        final PlaceViewHolder placeViewHolder = (PlaceViewHolder) holder;
-        placeViewHolder.mTextViewPlaceName.setText(mPlaces.get(position).getPlaceName());
-        Picasso.with(placeViewHolder.mImageViewPlacePhoto.getContext())
-                .load(mPlaces.get(position).getDrawableRes())
-                .fit()
-                .centerCrop()
-                .into(placeViewHolder.mImageViewPlacePhoto);
-        placeViewHolder.mItemView.setOnClickListener(getOnViewHolderClickListener(position));
-    }
-
-    private View.OnClickListener getOnViewHolderClickListener(final int position) {
-        return new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), PlaceDetailActivity.class);
-                intent.putExtra(PlaceDetailActivity.EXTRA_PLACE, mPlaces.get(position));
-                v.getContext().startActivity(intent);
-            }
-        };
+    public void onBindViewHolder(PlaceViewHolder holder, int position) {
+        holder.bind(mPlaces.get(position));
     }
 
     @Override
@@ -63,7 +42,8 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
     }
 
     public void setPlaces(List<Place> places) {
-        mPlaces = places;
+        mPlaces.clear();
+        mPlaces.addAll(places);
         notifyDataSetChanged();
     }
 
@@ -73,12 +53,30 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
         ImageView mImageViewPlacePhoto;
         @BindView(R.id.place_place_name)
         TextView mTextViewPlaceName;
-        View mItemView;
 
-        PlaceViewHolder(View itemView) {
-            super(itemView);
+        private Place mPlace;
+
+        PlaceViewHolder(ViewGroup parent) {
+            super(LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_item_place, parent, false));
             ButterKnife.bind(this, itemView);
-            mItemView = itemView;
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    PlaceDetailActivity.start(itemView.getContext(), mPlace);
+                }
+            });
         }
+
+        void bind(Place place) {
+            mPlace = place;
+            mTextViewPlaceName.setText(place.getPlaceName());
+            Picasso.with(mImageViewPlacePhoto.getContext())
+                    .load(place.getDrawableRes())
+                    .fit()
+                    .centerCrop()
+                    .into(mImageViewPlacePhoto);
+        }
+
     }
 }

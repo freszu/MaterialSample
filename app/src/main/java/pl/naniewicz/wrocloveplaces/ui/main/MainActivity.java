@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.fab)
-    public void onFabClick() {
+    void onFabClick() {
         showSnackbar();
     }
 

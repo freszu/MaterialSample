@@ -1,5 +1,6 @@
 package pl.naniewicz.wrocloveplaces.ui.place;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
@@ -35,6 +36,12 @@ public class PlaceDetailActivity extends AppCompatActivity {
     TextView mTextViewPlaceReview;
 
     private Place mPlace;
+
+    public static void start(Context context, Place place) {
+        Intent starter = new Intent(context, PlaceDetailActivity.class);
+        starter.putExtra(EXTRA_PLACE, place);
+        context.startActivity(starter);
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -73,7 +80,7 @@ public class PlaceDetailActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.fab)
-    public void onFabClick() {
+    void onFabClick() {
         Toast.makeText(this, R.string.msg_details_fab, Toast.LENGTH_SHORT).show();
     }
 

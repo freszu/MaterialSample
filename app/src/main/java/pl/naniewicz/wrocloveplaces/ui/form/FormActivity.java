@@ -4,7 +4,6 @@ import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Patterns;
 import android.view.Menu;
@@ -23,8 +22,6 @@ public class FormActivity extends AppCompatActivity {
     TextInputLayout mEmailTextInputLayout;
     @BindView(R.id.til_password)
     TextInputLayout mPasswordTextInputLayout;
-    @BindView(R.id.swtich_remember_password)
-    SwitchCompat switchRememberPassword;
 
     private DialogFragment mHelpDialogFragment;
 
@@ -64,7 +61,7 @@ public class FormActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.btn_login)
-    public void onLoginButtonClick() {
+    void onLoginButtonClick() {
         checkForm();
     }
 

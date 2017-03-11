@@ -49,7 +49,7 @@ public class Place implements Parcelable {
         dest.writeInt(mDrawableRes);
     }
 
-    protected Place(Parcel in) {
+    private Place(Parcel in) {
         mPlaceName = in.readString();
         mDescription = in.readString();
         mReview = in.readString();
