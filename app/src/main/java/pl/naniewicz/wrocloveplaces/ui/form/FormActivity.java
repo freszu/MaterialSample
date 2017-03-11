@@ -16,8 +16,6 @@ import pl.naniewicz.wrocloveplaces.R;
 
 public class FormActivity extends AppCompatActivity {
 
-    private static final String TAG_HELP_FRAGMENT = "TAG_HELP_FRAGMENT";
-
     @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.til_email)
@@ -57,7 +55,7 @@ public class FormActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_login_help:
-                mHelpDialogFragment.show(getFragmentManager(), TAG_HELP_FRAGMENT);
+                mHelpDialogFragment.show(getFragmentManager(), HelpDialogFragment.TAG);
         }
         return super.onOptionsItemSelected(item);
     }
@@ -88,11 +86,15 @@ public class FormActivity extends AppCompatActivity {
 
     public void setEmailValidationError(boolean state) {
         mEmailTextInputLayout.setErrorEnabled(state);
-        if (state) mEmailTextInputLayout.setError(getString(R.string.error_invalid_email));
+        if (state) {
+            mEmailTextInputLayout.setError(getString(R.string.error_invalid_email));
+        }
     }
 
     public void setPasswordValidationError(boolean state) {
         mPasswordTextInputLayout.setErrorEnabled(state);
-        if (state) mPasswordTextInputLayout.setError(getString(R.string.error_empty_pass));
+        if (state) {
+            mPasswordTextInputLayout.setError(getString(R.string.error_empty_pass));
+        }
     }
 }

@@ -67,7 +67,7 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
-    private static class PlaceViewHolder extends RecyclerView.ViewHolder {
+    static class PlaceViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.place_photo)
         ImageView mImageViewPlacePhoto;
