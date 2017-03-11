@@ -19,21 +19,6 @@ import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.model.Place;
 import pl.naniewicz.wrocloveplaces.ui.place.PlaceDetailActivity;
 
-/**
- * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- */
-
 public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
 
     private List<Place> mPlaces;
@@ -82,13 +67,13 @@ public class PlacesRecyclerViewAdapter extends RecyclerView.Adapter {
         notifyDataSetChanged();
     }
 
-    public static class PlaceViewHolder extends RecyclerView.ViewHolder {
+    private static class PlaceViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.place_photo) ImageView mImageViewPlacePhoto;
         @BindView(R.id.place_place_name) TextView mTextViewPlaceName;
         View mItemView;
 
-        public PlaceViewHolder(View itemView) {
+        PlaceViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
             mItemView = itemView;

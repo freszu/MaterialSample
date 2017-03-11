@@ -24,21 +24,6 @@ import pl.naniewicz.wrocloveplaces.R;
 import pl.naniewicz.wrocloveplaces.ui.form.FormActivity;
 import pl.naniewicz.wrocloveplaces.ui.widget.adapter.ViewPagerAdapter;
 
-/**
- * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- */
-
 public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.drawer_layout) DrawerLayout mDrawerLayout;
@@ -47,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.viewpager) ViewPager mViewPager;
     @BindView(R.id.fab) FloatingActionButton mFloatingActionButton;
     @BindView(R.id.tab_layout) TabLayout mTabLayout;
+    
     private ActionBarDrawerToggle mDrawerToggle;
 
     @Override
@@ -132,7 +118,6 @@ public class MainActivity extends AppCompatActivity {
         }, 250);
     }
 
-    @SuppressWarnings("unused")
     @OnClick(R.id.fab)
     public void onFabClick() {
         showSnackbar();

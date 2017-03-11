@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,25 +21,14 @@ import pl.naniewicz.wrocloveplaces.model.Place;
 import pl.naniewicz.wrocloveplaces.ui.widget.adapter.PlacesRecyclerViewAdapter;
 import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 
-/**
- * Copyright (C) 2016  Rafał Naniewicz and Szymon Kozak
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
- */
-
 public class PlaceListFragment extends Fragment {
 
-    @BindView(R.id.swipeRefreshLayout) SwipeRefreshLayout mSwipeRefreshLayout;
-    @BindView(R.id.recycler_view) RecyclerView mRecyclerView;
+    private static final String TAG = PlaceListFragment.class.getSimpleName();
+
+    @BindView(R.id.swipeRefreshLayout)
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    @BindView(R.id.recycler_view)
+    RecyclerView mRecyclerView;
     private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
 
     @Override
@@ -87,7 +77,7 @@ public class PlaceListFragment extends Fragment {
 
         private Context mApplicationContext;
 
-        public DummyBackgroundTask(Context context) {
+        DummyBackgroundTask(Context context) {
             mApplicationContext = context.getApplicationContext();
         }
 
@@ -96,7 +86,7 @@ public class PlaceListFragment extends Fragment {
             try {
                 Thread.sleep(TASK_DURATION_MILLISECONDS);
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                Log.e(TAG, e.getLocalizedMessage());
             }
             return PlacesGenerator.getRandomPlaces(mApplicationContext, 30);
         }
