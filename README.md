@@ -10,7 +10,6 @@ App prepared for material design presentation held on PWr. It's supposed to be f
 * [Picasso](http://square.github.io/picasso/)
 * [Butter Knife](http://jakewharton.github.io/butterknife/)
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView)
-* [Material Dialogs](https://github.com/afollestad/material-dialogs)
 
 # Attributions
 * <a href="https://raw.githubusercontent.com/freszu/WroclovePlaces/master/app/src/main/res/drawable-nodpi/wroclaw_centennial_hall0.jpg">
