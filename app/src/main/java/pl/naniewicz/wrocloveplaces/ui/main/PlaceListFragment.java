@@ -29,6 +29,7 @@ public class PlaceListFragment extends Fragment {
     SwipeRefreshLayout mSwipeRefreshLayout;
     @BindView(R.id.recycler_view)
     RecyclerView mRecyclerView;
+
     private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
 
     @Override

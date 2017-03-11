@@ -35,7 +35,7 @@ public class FormActivity extends AppCompatActivity {
     }
 
     private void setupHelpDialogFragment() {
-        mHelpDialogFragment = new HelpDialogFragment();
+        mHelpDialogFragment = HelpDialogFragment.newInstance();
     }
 
     private void setupToolbar() {
