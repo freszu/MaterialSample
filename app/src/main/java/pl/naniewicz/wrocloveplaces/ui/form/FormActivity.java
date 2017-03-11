@@ -1,6 +1,5 @@
 package pl.naniewicz.wrocloveplaces.ui.form;
 
-import android.app.DialogFragment;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -23,19 +22,12 @@ public class FormActivity extends AppCompatActivity {
     @BindView(R.id.til_password)
     TextInputLayout mPasswordTextInputLayout;
 
-    private DialogFragment mHelpDialogFragment;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form);
         ButterKnife.bind(this);
         setupToolbar();
-        setupHelpDialogFragment();
-    }
-
-    private void setupHelpDialogFragment() {
-        mHelpDialogFragment = HelpDialogFragment.newInstance();
     }
 
     private void setupToolbar() {
@@ -55,7 +47,7 @@ public class FormActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_login_help:
-                mHelpDialogFragment.show(getFragmentManager(), HelpDialogFragment.TAG);
+                HelpDialogFragment.newInstance().show(getFragmentManager(), HelpDialogFragment.TAG);
         }
         return super.onOptionsItemSelected(item);
     }
