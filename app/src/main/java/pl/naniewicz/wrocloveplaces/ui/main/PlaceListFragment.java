@@ -1,13 +1,11 @@
 package pl.naniewicz.wrocloveplaces.ui.main;
 
 import android.content.Context;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,37 +62,11 @@ public class PlaceListFragment extends Fragment {
 
     private void refresh() {
         mSwipeRefreshLayout.setRefreshing(true);
-        new DummyBackgroundTask(mRecyclerView.getContext()).execute();
+        new DummyBackgroundTask(this).execute();
     }
 
-    private void onRefreshComplete(List<Place> places) {
+    public void onRefreshComplete(List<Place> places) {
         mSwipeRefreshLayout.setRefreshing(false);
         mPlacesRecyclerViewAdapter.setPlaces(places);
-    }
-
-    private class DummyBackgroundTask extends AsyncTask<Void, Void, List<Place>> {
-
-        static final int TASK_DURATION_MILLISECONDS = 3 * 1000;
-
-        private Context mApplicationContext;
-
-        DummyBackgroundTask(Context context) {
-            mApplicationContext = context.getApplicationContext();
-        }
-
-        @Override
-        protected List<Place> doInBackground(Void... params) {
-            try {
-                Thread.sleep(TASK_DURATION_MILLISECONDS);
-            } catch (InterruptedException e) {
-                Log.e(TAG, e.getLocalizedMessage());
-            }
-            return PlacesGenerator.getRandomPlaces(mApplicationContext, 30);
-        }
-
-        @Override
-        protected void onPostExecute(List<Place> result) {
-            onRefreshComplete(result);
-        }
     }
 }
