@@ -3,7 +3,6 @@ package pl.naniewicz.wrocloveplaces.ui.main;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +43,6 @@ public class PlaceListFragment extends Fragment {
         mPlacesRecyclerViewAdapter = new PlacesRecyclerViewAdapter();
         mPlacesRecyclerViewAdapter.setPlaces(PlacesGenerator.getRandomPlaces(getContext(), 30));
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
         mRecyclerView.setAdapter(mPlacesRecyclerViewAdapter);
     }
 
