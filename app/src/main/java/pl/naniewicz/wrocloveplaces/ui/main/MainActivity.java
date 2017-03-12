@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setupToolbar();
-        setupDrawerContent();
+        setupNavigationListener();
         setupViewPager();
         mTabLayout.setupWithViewPager(mViewPager);
     }
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.setOffscreenPageLimit(adapter.getCount() - 1);
     }
 
-    private void setupDrawerContent() {
+    private void setupNavigationListener() {
         mNavigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
