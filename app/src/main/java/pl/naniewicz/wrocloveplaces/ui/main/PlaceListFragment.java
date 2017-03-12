@@ -27,6 +27,10 @@ public class PlaceListFragment extends Fragment {
 
     private PlacesRecyclerViewAdapter mPlacesRecyclerViewAdapter;
 
+    public static PlaceListFragment newInstance() {
+        return new PlaceListFragment();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_places_list, container, false);
