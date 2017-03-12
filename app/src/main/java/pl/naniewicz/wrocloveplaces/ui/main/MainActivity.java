@@ -1,8 +1,6 @@
 package pl.naniewicz.wrocloveplaces.ui.main;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
@@ -72,10 +70,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                Toast.makeText(this, R.string.menu_settings, Toast.LENGTH_SHORT).show();
-                return true;
+        if (item.getItemId() == R.id.action_settings) {
+            Toast.makeText(this, R.string.menu_settings, Toast.LENGTH_SHORT).show();
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -100,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                         switch (menuItem.getItemId()) {
                             case R.id.activity_form:
                                 mDrawerLayout.closeDrawers();
-                                startFormActivityDelayed();
+                                FormActivity.start(MainActivity.this);
                                 break;
                             case R.id.activity_map:
                                 Toast.makeText(MainActivity.this, R.string.map, Toast.LENGTH_SHORT).show();
@@ -112,16 +109,6 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                     }
                 });
-    }
-
-    private void startFormActivityDelayed() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(MainActivity.this, FormActivity.class);
-                startActivity(intent);
-            }
-        }, 250);
     }
 
     @OnClick(R.id.fab)

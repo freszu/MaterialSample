@@ -1,5 +1,7 @@
 package pl.naniewicz.wrocloveplaces.ui.form;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -21,6 +23,11 @@ public class FormActivity extends AppCompatActivity {
     TextInputLayout mEmailTextInputLayout;
     @BindView(R.id.til_password)
     TextInputLayout mPasswordTextInputLayout;
+
+    public static void start(Context context) {
+        Intent starter = new Intent(context, FormActivity.class);
+        context.startActivity(starter);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,9 +52,8 @@ public class FormActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_login_help:
-                HelpDialogFragment.newInstance().show(getFragmentManager(), HelpDialogFragment.TAG);
+        if (item.getItemId() == R.id.action_login_help) {
+            HelpDialogFragment.newInstance().show(getFragmentManager(), HelpDialogFragment.TAG);
         }
         return super.onOptionsItemSelected(item);
     }
