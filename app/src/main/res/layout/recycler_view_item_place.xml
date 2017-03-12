@@ -16,7 +16,8 @@
         android:layout_width="@dimen/list_item_image_size"
         android:layout_height="@dimen/list_item_image_size"
         android:layout_marginEnd="@dimen/recycler_view_image_right_margin"
-        android:layout_marginRight="@dimen/recycler_view_image_right_margin"/>
+        android:layout_marginRight="@dimen/recycler_view_image_right_margin"
+        tools:src="@drawable/wroclaw_centennial_hall0"/>
 
     <TextView
         android:id="@+id/place_place_name"
