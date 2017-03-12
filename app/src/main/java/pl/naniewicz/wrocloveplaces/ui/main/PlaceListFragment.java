@@ -32,19 +32,16 @@ public class PlaceListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_places_list, container, false);
         ButterKnife.bind(this, view);
         setupSwipeToRefresh();
-        setupRecyclerViewAdapter();
         setupRecyclerView();
         return view;
     }
 
     private void setupRecyclerView() {
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-        mRecyclerView.setAdapter(mPlacesRecyclerViewAdapter);
-    }
-
-    private void setupRecyclerViewAdapter() {
         mPlacesRecyclerViewAdapter = new PlacesRecyclerViewAdapter();
         mPlacesRecyclerViewAdapter.setPlaces(PlacesGenerator.getRandomPlaces(getContext(), 30));
+
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
+        mRecyclerView.setAdapter(mPlacesRecyclerViewAdapter);
     }
 
     private void setupSwipeToRefresh() {
