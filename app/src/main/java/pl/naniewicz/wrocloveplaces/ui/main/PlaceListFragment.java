@@ -1,6 +1,5 @@
 package pl.naniewicz.wrocloveplaces.ui.main;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -33,7 +32,7 @@ public class PlaceListFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_places_list, container, false);
         ButterKnife.bind(this, view);
         setupSwipeToRefresh();
-        setupRecyclerViewAdapter(mRecyclerView.getContext());
+        setupRecyclerViewAdapter();
         setupRecyclerView();
         return view;
     }
@@ -43,9 +42,9 @@ public class PlaceListFragment extends Fragment {
         mRecyclerView.setAdapter(mPlacesRecyclerViewAdapter);
     }
 
-    private void setupRecyclerViewAdapter(Context context) {
+    private void setupRecyclerViewAdapter() {
         mPlacesRecyclerViewAdapter = new PlacesRecyclerViewAdapter();
-        mPlacesRecyclerViewAdapter.setPlaces(PlacesGenerator.getRandomPlaces(context, 30));
+        mPlacesRecyclerViewAdapter.setPlaces(PlacesGenerator.getRandomPlaces(getContext(), 30));
     }
 
     private void setupSwipeToRefresh() {
