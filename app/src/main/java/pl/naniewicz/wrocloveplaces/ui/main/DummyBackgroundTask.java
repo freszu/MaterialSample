@@ -13,7 +13,7 @@ import pl.naniewicz.wrocloveplaces.util.PlacesGenerator;
 class DummyBackgroundTask extends AsyncTask<Void, Void, List<Place>> {
 
     private static final String TAG = DummyBackgroundTask.class.getSimpleName();
-    private static final int TASK_DURATION_MILLISECONDS =  1000;
+    private static final int TASK_DURATION_MILLISECONDS = 3 * 1000;
     private static final int PLACES_AMOUNT = 30;
 
     private WeakReference<PlaceListFragment> mPlaceListFragmentWeakReference;
