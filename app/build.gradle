@@ -21,7 +21,7 @@ android {
 }
 
 ext{
-    androidSupportLibrariesVersion = '25.2.0'
+    androidSupportLibrariesVersion = '25.3.1'
     butterknifeVersion = '8.5.1'
 }
 
